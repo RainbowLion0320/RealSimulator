@@ -13,3 +13,16 @@ desktop.ini
 .vs/
 *.tmp
 *.log
+.DS_Store
+node_modules/
+dist/
+output/
+*.log
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+.android-local.json
+*.jks
+*.keystore
+*.p12
