@@ -1,0 +1,15 @@
+# Local credentials and machine-specific files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor and temporary files
+.idea/
+.vs/
+*.tmp
+*.log
