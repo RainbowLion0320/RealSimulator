@@ -32,7 +32,9 @@ if (!(Test-Path -LiteralPath $key)) {
     Check 'Create signing key'
 }
 New-Item -ItemType Directory -Path output/apk -Force | Out-Null
-$apk = Join-Path $repo 'output\apk\Ming-Dynasty-1582-0.1.0.apk'
+$version = (Get-Content -Raw -Encoding UTF8 (Join-Path $repo 'package.json') | ConvertFrom-Json).version
+$apkName = "Ming-Dynasty-1582-$version.apk"
+$apk = Join-Path $repo (Join-Path 'output\apk' $apkName)
 & "$sdk\build-tools\36.0.0\zipalign.exe" -f -p 4 android/app/build/outputs/apk/release/app-release-unsigned.apk output/apk/aligned.apk
 Check 'Align APK'
 & "$sdk\build-tools\36.0.0\apksigner.bat" sign --ks $key --ks-key-alias ming --ks-pass "file:$pass" --out $apk output/apk/aligned.apk
@@ -43,5 +45,5 @@ $hashAlgorithm = [Security.Cryptography.SHA256]::Create()
 $apkStream = [IO.File]::OpenRead($apk)
 try { $hash = ([BitConverter]::ToString($hashAlgorithm.ComputeHash($apkStream))).Replace('-','').ToLowerInvariant() }
 finally { $apkStream.Dispose(); $hashAlgorithm.Dispose() }
-[IO.File]::WriteAllText("$apk.sha256", "$hash  Ming-Dynasty-1582-0.1.0.apk`n", (New-Object Text.UTF8Encoding($false)))
+[IO.File]::WriteAllText("$apk.sha256", "$hash  $apkName`n", (New-Object Text.UTF8Encoding($false)))
 Write-Output "APK: $apk"

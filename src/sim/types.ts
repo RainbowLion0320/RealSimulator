@@ -106,6 +106,22 @@ export interface Ledger {
   initialGrain: number;
 }
 export interface Game {
+  tutorial?: {
+    step:
+      | "welcome"
+      | "read"
+      | "decision"
+      | "orders"
+      | "audience"
+      | "wait"
+      | "reply"
+      | "archive"
+      | "map"
+      | "done";
+    firstReportId: number;
+    replyId?: number;
+    reviewedArchive?: boolean;
+  };
   version: 1;
   seed: number;
   rng: number;

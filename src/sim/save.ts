@@ -1,6 +1,7 @@
 import type { Game } from "./types";
 import { modernText } from "./copy";
 import LZString from "lz-string";
+import { validateTutorial } from "./tutorial";
 const PREFIX = "ming-campaign-v1-";
 function checksum(s: string) {
   let h = 2166136261;
@@ -217,6 +218,7 @@ export function decode(input: string): Game {
     )
   )
     throw new Error("存档履历记录不完整。");
+  validateTutorial(g);
   for (const r of [...g.reports, ...g.mail]) r.body = modernText(r.body);
   for (const p of g.people) p.voice = modernText(p.voice);
   return g as Game;

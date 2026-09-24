@@ -33,7 +33,7 @@ npm run android:apk
 
 其他机器可按 [Capacitor 官方环境说明](https://capacitorjs.com/docs/getting-started/environment-setup) 安装对应 Android 工具后调整脚本路径。依赖版本锁在 `package-lock.json`。
 
-脚本运行网页构建、同步资源、Gradle release 构建、zipalign、apksigner 签名并验证，输出 `output/apk/Ming-Dynasty-1582-0.1.0.apk` 和 SHA-256 文件。不是只改扩展名的网页文件。
+脚本运行网页构建、同步资源、Gradle release 构建、zipalign、apksigner 签名并验证，按 package.json 版本输出 APK 和 SHA-256 文件，例如 `output/apk/Ming-Dynasty-1582-0.2.0.apk`。不是只改扩展名的网页文件。
 
 首次构建生成本项目独立的持久签名密钥，存于 `%LOCALAPPDATA%\RealSimulator\signing`，不会提交 Git。后续升级必须沿用同一个密钥和应用 ID；请私下备份此目录。测试安装使用 `adb install -r`，不清除已有存档。
 

@@ -68,6 +68,7 @@ function recordSnapshot(g: Game) {
 export function newGame(seed = Date.now() >>> 0): Game {
   const g: Game = {
     version: 1,
+    tutorial: { step: "welcome", firstReportId: 1 },
     seed: seed >>> 0,
     rng: seed >>> 0,
     day: 0,
