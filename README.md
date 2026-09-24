@@ -6,9 +6,12 @@
 
 ## 直接开始
 
+- **在线游玩**：[打开《大明王朝1582》](https://RainbowLion0320.github.io/RealSimulator/)，电脑和手机浏览器均可，无需安装。
 - **Windows 网页版**：双击 `start.bat`，浏览器自动打开 `http://127.0.0.1:5187/`。
 - **Android**：安装 `output/apk/Ming-Dynasty-1582-0.2.0.apk`。最低 Android 7，竖屏，离线运行。
-- 预编译安装包见 GitHub Releases；源码首次构建需要 Node.js 22.12+。网页发行包自带构建结果，启动只用 Windows 自带 PowerShell。
+- 预编译安装包见 [GitHub Releases](https://github.com/RainbowLion0320/RealSimulator/releases/latest)；源码首次构建需要 Node.js 22.12+。网页发行包自带构建结果，启动只用 Windows 自带 PowerShell。
+
+在线版存档保存在当前浏览器，不会自动跨设备同步。从本地版迁移时，请先导出存档，再在在线版点击皇帝头像导入。
 
 新局默认进入亲政引导：先读军饷奏折、作批示，再逐步认识诏令、召见、时间、档案与舆图。底部固定显示当前下一步，可随时跳过。旧存档继续正常游玩；点击皇帝头像 → 开启新王朝可以体验引导，原局先备份到存档 3。
 
@@ -29,6 +32,7 @@
 - [现代中文文案标准](docs/COPY-GUIDE.md)
 - [亲政引导与开放节奏](docs/ONBOARDING.md)
 - [构建、启动与存档说明](docs/BUILD.md)
+- [GitHub Pages 自动发布与存档迁移](docs/DEPLOYMENT.md)
 - [运行验证记录](docs/QA.md)
 - [视觉验收](docs/design/design-qa.md)
 - [素材与许可](docs/design/assets.md)
@@ -39,4 +43,8 @@ npm run check
 npm run android:apk
 ```
 
-项目：[RainbowLion0320/RealSimulator](https://github.com/RainbowLion0320/RealSimulator)。设计与实现保留在同一仓库，通过 Git 记录历史。
+项目：[RainbowLion0320/RealSimulator](https://github.com/RainbowLion0320/RealSimulator)。设计与实现保留在同一仓库，通过 Git 记录历史。推送主分支后，GitHub Actions 自动测试、构建并更新在线版。
+
+## 开源许可
+
+采用 [MIT 许可](LICENSE)，允许使用、修改和再分发；保留版权与许可声明。第三方字体、图标及软件保留原许可，详见 [第三方许可说明](THIRD_PARTY_NOTICES.md)。
